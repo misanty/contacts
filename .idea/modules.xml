@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Contacts.iml" filepath="$PROJECT_DIR$/.idea/modules/Contacts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/How many nuts each squirrel will get/Contacts.Problems-How_many_nuts_each_squirrel_will_get.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/How many nuts each squirrel will get/Contacts.Problems-How_many_nuts_each_squirrel_will_get.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/How many nuts each squirrel will get/Contacts.Problems-How_many_nuts_each_squirrel_will_get.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/How many nuts each squirrel will get/Contacts.Problems-How_many_nuts_each_squirrel_will_get.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems/How many nuts each squirrel will get/Contacts.Problems-How_many_nuts_each_squirrel_will_get.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems/How many nuts each squirrel will get/Contacts.Problems-How_many_nuts_each_squirrel_will_get.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems (1)/How many nuts each squirrel will get/Contacts.Problems__1_-How_many_nuts_each_squirrel_will_get.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems (1)/How many nuts each squirrel will get/Contacts.Problems__1_-How_many_nuts_each_squirrel_will_get.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems (1)/How many nuts each squirrel will get/Contacts.Problems__1_-How_many_nuts_each_squirrel_will_get.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems (1)/How many nuts each squirrel will get/Contacts.Problems__1_-How_many_nuts_each_squirrel_will_get.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Problems (1)/How many nuts each squirrel will get/Contacts.Problems__1_-How_many_nuts_each_squirrel_will_get.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Problems (1)/How many nuts each squirrel will get/Contacts.Problems__1_-How_many_nuts_each_squirrel_will_get.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/Contacts.util.iml" filepath="$PROJECT_DIR$/.idea/modules/util/Contacts.util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/Contacts.util.main.iml" filepath="$PROJECT_DIR$/.idea/modules/util/Contacts.util.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/Contacts.util.test.iml" filepath="$PROJECT_DIR$/.idea/modules/util/Contacts.util.test.iml" />
+    </modules>
+  </component>
+</project>
