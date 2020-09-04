@@ -89,7 +89,6 @@ public class Main {
                     System.out.println("The Phone Book has " + contactsList.size() + " records.");
                     break;
                 case REMOVE:
-                    //TODO Add remove
                     if (contactsList.size() > 0) {
                         contactsList.forEach(contact -> System.out.println(contact.toString()));
                         System.out.print("Select a record: ");
