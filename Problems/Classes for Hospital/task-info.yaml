@@ -1,24 +1,24 @@
 type: code
 files:
-  - name: src/Main.java
-    visible: true
-    text: |-
-      class Person {
+- name: src/Main.java
+  visible: true
+  text: |-
+    class Person {
 
-      }
+    }
 
-      class Employee {
+    class Employee {
 
-      }
+    }
 
-      class Doctor {
+    class Doctor {
 
-      }
+    }
 
-      class Patient {
+    class Patient {
 
-      }
-    learner_created: false
+    }
+  learner_created: false
 feedback_link: https://hyperskill.org/learn/step/8309
 status: Solved
 feedback:

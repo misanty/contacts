@@ -1,20 +1,20 @@
 type: edu
 custom_name: stage3
 files:
-  - name: src/contacts/Main.java
-    visible: true
-    text: |
-      package contacts;
+- name: src/contacts/Main.java
+  visible: true
+  text: |
+    package contacts;
 
-      public class Main {
-          public static void main(String[] args) {
-              System.out.println("Hello World!");
-          }
-      }
-    learner_created: false
-  - name: test/ContactsTest.java
-    visible: false
-    text: "import contacts.Main;\nimport org.hyperskill.hstest.stage.StageTest;\nimport\
+    public class Main {
+        public static void main(String[] args) {
+            System.out.println("Hello World!");
+        }
+    }
+  learner_created: false
+- name: test/ContactsTest.java
+  visible: false
+  text: "import contacts.Main;\nimport org.hyperskill.hstest.stage.StageTest;\nimport\
     \ org.hyperskill.hstest.testcase.CheckResult;\nimport org.hyperskill.hstest.testcase.TestCase;\n\
     \nimport java.util.List;\nimport java.util.function.Function;\n\n\nclass TestClue\
     \ {\n\n    Function<String, CheckResult> callback;\n\n    TestClue(Function<String,\
@@ -214,7 +214,7 @@ files:
     \        try {\n            return clue.callback.apply(reply);\n        }\n  \
     \      catch (Exception ex) {\n            return new CheckResult(false, \"Can't\
     \ check the answer\");\n        }\n    }\n}\n"
-    learner_created: false
+  learner_created: false
 feedback_link: https://hyperskill.org/projects/43/stages/230/implement
 status: Unchecked
 record: -1

@@ -21,7 +21,7 @@ public class Main {
             try {
                 action = Action.valueOf(value.toUpperCase());
             } catch (IllegalArgumentException e) {
-                action = Action.NONVALID;
+                action = Action.INVALID;
             }
 
 
@@ -101,7 +101,7 @@ public class Main {
 
                     break;
                 case EXIT:
-                case NONVALID:
+                case INVALID:
                     break;
             }
 
@@ -130,7 +130,7 @@ public class Main {
         EDIT,
         COUNT,
         LIST,
-        NONVALID,
+        INVALID,
         EXIT;
 
         @Override

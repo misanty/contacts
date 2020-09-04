@@ -1,8 +1,8 @@
 type: code
 files:
-  - name: src/Main.java
-    visible: true
-    text: "/**\n    Box for cakes\n*/\nclass CakeBox {\n\n    private Cake cake;\n\n\
+- name: src/Main.java
+  visible: true
+  text: "/**\n    Box for cakes\n*/\nclass CakeBox {\n\n    private Cake cake;\n\n\
     \    public void put(Cake cake) {\n    \tthis.cake = cake;\n    }\n\n    public\
     \ Cake get() {\n        return this.cake;\n    }\n}\n\n/**\n    Box for pies\n\
     */\nclass PieBox {\n\n    private Pie pie;\n\n    public void put(Pie pie) {\n\
@@ -13,7 +13,7 @@ files:
     \ more such boring classes OR ...\n    magic class for everything everybody is\
     \ waiting for\n*/\nclass Box...\n\n// Don't change classes below\nclass Cake {\
     \ }\n\nclass Pie { }\n\nclass Tart { }"
-    learner_created: false
+  learner_created: false
 feedback_link: https://hyperskill.org/learn/step/2597
 status: Solved
 feedback:
