@@ -89,10 +89,21 @@ public class Main {
                     System.out.println("The Phone Book has " + contactsList.size() + " records.");
                     break;
                 case REMOVE:
+                    int id;
                     if (contactsList.size() > 0) {
                         contactsList.forEach(contact -> System.out.println(contact.toString()));
                         System.out.print("Select a record: ");
-                        contactsList.remove(getIndexOf(scanner.nextInt(), contactsList));
+                        id = getIndexOf(scanner.nextInt(), contactsList);
+                        contactsList.remove(id);
+                        if (contactsList.size() > 0 && id < contactsList.size()) {
+
+                            for (int i = contactsList.size(); i > id; --i) {
+
+                                contactsList.get(i - 1).setId(i);
+
+                            }
+                            cnt = contactsList.size() - 1;
+                        }
                         System.out.println("The record removed!");
                     } else {
                         System.out.println("No records to remove!");
@@ -105,7 +116,8 @@ public class Main {
             }
 
             scanner.reset();
-            cnt++;
+            if (action != Action.INVALID)
+                cnt++;
         } while (!value.equals("exit"));
 
 
