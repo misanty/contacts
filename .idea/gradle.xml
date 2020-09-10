@@ -8,7 +8,6 @@
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="#JAVA_INTERNAL" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -26,6 +25,7 @@
             <option value="$PROJECT_DIR$/Problems/First, second, third" />
             <option value="$PROJECT_DIR$/Problems/Fix compile-time errors" />
             <option value="$PROJECT_DIR$/Problems/In the middle of a word" />
+            <option value="$PROJECT_DIR$/Problems/IntBinaryOperation" />
             <option value="$PROJECT_DIR$/Problems/Number parsing" />
             <option value="$PROJECT_DIR$/Problems/Pastry packing optimization" />
             <option value="$PROJECT_DIR$/Problems/Patient needs a doctor" />
