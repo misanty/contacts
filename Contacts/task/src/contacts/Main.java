@@ -8,21 +8,6 @@ public class Main {
     static List<Contacts> contactsList;
 
 
-    public static void tst() {
-
-
-//TODO Find out the usage of upcasting and adding sub object
-        List<AbstractRecord> companies = new ArrayList<>();
-        companies.add(new Organization("name", "adres", "123 1234"));
-        companies.add(new Person("person", "lastname", "2015-05-07", "F", "123 13214 4"));
-
-        companies.forEach(list -> System.out.println(list.toString()));
-
-        AbstractRecord rec = new Person();
-
-
-    }
-
     public static void main(String[] args) {
         Contacts contacts;
         AbstractRecord record;
@@ -33,7 +18,7 @@ public class Main {
         int cnt = 1;
         ActionExecutor executor = new ActionExecutor();
         ActionReceiver receiver;
-        // tst();
+        
 
         do {
             System.out.println("Enter action (add, remove, edit, count, list, exit):");
