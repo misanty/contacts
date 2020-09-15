@@ -8,6 +8,7 @@
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="#JAVA_INTERNAL" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -15,12 +16,14 @@
             <option value="$PROJECT_DIR$/Problems (1)/How many nuts each squirrel will get" />
             <option value="$PROJECT_DIR$/Problems (2)/From string to a number" />
             <option value="$PROJECT_DIR$/Problems/Avoid division by zero" />
+            <option value="$PROJECT_DIR$/Problems/Bank account" />
             <option value="$PROJECT_DIR$/Problems/Binary search" />
             <option value="$PROJECT_DIR$/Problems/Check IP address" />
             <option value="$PROJECT_DIR$/Problems/Classes for Hospital" />
             <option value="$PROJECT_DIR$/Problems/Creating instances" />
             <option value="$PROJECT_DIR$/Problems/Creating list" />
             <option value="$PROJECT_DIR$/Problems/Cyclically shifting elements" />
+            <option value="$PROJECT_DIR$/Problems/Decrement all" />
             <option value="$PROJECT_DIR$/Problems/Difference of times" />
             <option value="$PROJECT_DIR$/Problems/First, second, third" />
             <option value="$PROJECT_DIR$/Problems/Fix compile-time errors" />
@@ -32,13 +35,17 @@
             <option value="$PROJECT_DIR$/Problems/Print strings in the reverse order" />
             <option value="$PROJECT_DIR$/Problems/Printing each word in a new line" />
             <option value="$PROJECT_DIR$/Problems/Profit" />
+            <option value="$PROJECT_DIR$/Problems/Robot Builder" />
             <option value="$PROJECT_DIR$/Problems/Safe converting" />
             <option value="$PROJECT_DIR$/Problems/Safe password" />
             <option value="$PROJECT_DIR$/Problems/Saying animals" />
+            <option value="$PROJECT_DIR$/Problems/Shape hierarchy" />
             <option value="$PROJECT_DIR$/Problems/Sorting arrays" />
             <option value="$PROJECT_DIR$/Problems/Start or end of a word" />
             <option value="$PROJECT_DIR$/Problems/Sum of numbers in the range" />
             <option value="$PROJECT_DIR$/Problems/The smallest value" />
+            <option value="$PROJECT_DIR$/Problems/The sum of digits" />
+            <option value="$PROJECT_DIR$/Problems/Triples" />
             <option value="$PROJECT_DIR$/util" />
           </set>
         </option>

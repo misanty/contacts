@@ -7,13 +7,34 @@ import java.util.Scanner;
 public class Main {
     static List<Contacts> contactsList;
 
+
+    public static void tst() {
+
+
+//TODO Find out the usage of upcasting and adding sub object
+        List<AbstractRecord> companies = new ArrayList<>();
+        companies.add(new Organization("name", "adres", "123 1234"));
+        companies.add(new Person("person", "lastname", "2015-05-07", "F", "123 13214 4"));
+
+        companies.forEach(list -> System.out.println(list.toString()));
+
+        AbstractRecord rec = new Person();
+
+
+    }
+
     public static void main(String[] args) {
         Contacts contacts;
+        AbstractRecord record;
         contactsList = new ArrayList<>();
         Scanner scanner;
         String value;
         Action action;
         int cnt = 1;
+        ActionExecutor executor = new ActionExecutor();
+        ActionReceiver receiver;
+        // tst();
+
         do {
             System.out.println("Enter action (add, remove, edit, count, list, exit):");
             scanner = new Scanner(System.in);
@@ -27,7 +48,35 @@ public class Main {
 
             switch (action) {
                 case ADD:
-                    contacts = new Contacts();
+                    AbstractRecord abstractRecordInitialization;
+                    do {
+                        System.out.println("Enter the type (person, organization): ");
+                        String type = scanner.next();
+                        abstractRecordInitialization = new InitializationRecordTypeFactory().createRecordType(type);
+                        if (abstractRecordInitialization != null) {
+                            receiver = new ActionReceiver(abstractRecordInitialization, scanner);
+
+                            AddAction addAction = new AddAction(receiver);
+
+                            executor.executeOperation(addAction);
+                        }
+                    } while (abstractRecordInitialization != null && AbstractRecord.getRecordList().size() <= 0);
+
+
+
+                    // AbstractRecord.getRecordList().forEach(abstractRecord -> System.out.println(abstractRecord.toString()));
+                    // AbstractRecord.getRecordList().remove(1);
+
+
+
+                    /*abstractRecordList.add(record);
+                    for (AbstractRecord person : abstractRecordList) {
+                        Person person1 = (Person) person;
+                        System.out.println(person1.toString());
+                    }*/
+                    //TODO Change the business logic into above example :)
+
+                    /*contacts = new Contacts();
                     System.out.print("Enter the name: ");
                     contacts.setName(scanner.next());
                     System.out.print("Enter the surname: ");
@@ -42,9 +91,11 @@ public class Main {
                     contacts.setId(cnt);
                     contactsList.add(contacts);
                     System.out.println("The record added.");
-
+*/
                     break;
                 case EDIT:
+
+
 
                     if (contactsList.size() > 0) {
                         int id;
@@ -83,13 +134,16 @@ public class Main {
 
                     break;
                 case LIST:
-                    contactsList.forEach(contacts1 -> System.out.println(contacts1.toString()));
+                    AbstractRecord.getRecordList().forEach(abstractRecord -> System.out.println(abstractRecord.toString()));
+                    ////////////////////////////
+                    //contactsList.forEach(contacts1 -> System.out.println(contacts1.toString()));
                     break;
                 case COUNT:
                     System.out.println("The Phone Book has " + contactsList.size() + " records.");
                     break;
                 case REMOVE:
                     int id;
+                    AbstractRecord.getRecordList().remove(0);
                     if (contactsList.size() > 0) {
                         contactsList.forEach(contact -> System.out.println(contact.toString()));
                         System.out.print("Select a record: ");
@@ -152,3 +206,66 @@ public class Main {
 
 
 }
+
+class Initilizer {
+    static List<Contacts> contactsList = new ArrayList<>();
+
+    public enum Action {
+        ADD,
+        REMOVE,
+        EDIT,
+        COUNT,
+        LIST,
+        INVALID,
+        EXIT;
+
+        @Override
+        public String toString() {
+            return name().toLowerCase();
+        }
+    }
+
+    static Action action;
+    AbstractRecord mContacts;
+    Scanner mScanner;
+    static int cnt = 0;
+
+
+    public Initilizer() {
+        String value;
+        System.out.println("Enter action (add, remove, edit, count, list, exit):");
+        mScanner = new Scanner(System.in);
+        value = mScanner.next();
+        try {
+            action = Action.valueOf(value.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            action = Action.INVALID;
+        }
+    }
+
+    public void add() {
+        /*
+         * TODO Slice and dice the entire switch statements into this class by turning them into individual methods
+         *
+         *  */
+    }
+
+    public static int getIndexOf(int id, List<Contacts> contacts) {
+        int cnt = 0;
+
+        for (Contacts contact : contacts) {
+            if (id == contact.getId())
+                return cnt;
+            cnt++;
+        }
+
+        return -1;
+    }
+
+
+}
+
+
+
+
+

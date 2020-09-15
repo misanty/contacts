@@ -31,34 +31,32 @@ files:
     \                .setInput(\"exit\")\n                .setAttach(new TestClue(output\
     \ -> {\n                    output = output.strip().toLowerCase();\n         \
     \           if (!output.contains(\"enter action\")) {\n                      \
-    \  return new CheckResult(false,\n                            \"I didn't see where\
-    \ \\\"Enter action\\\" part in the responsesFromClient\");\n                 \
-    \   }\n                    return CheckResult.correct();\n                })),\n\
-    \n            new TestCase<TestClue>()\n                .setInput(\n         \
-    \           \"count\\n\" +\n                    \"exit\")\n                .setAttach(new\
-    \ TestClue(output -> {\n                    output = output.strip().toLowerCase();\n\
-    \                    if (!output.contains(\"0 records\")) {\n                \
-    \        return new CheckResult(false,\n                            \"No \\\"\
-    0 records\\\" part \" +\n                                \"in the responsesFromClient\
-    \ in a place where it should be\");\n                    }\n                 \
-    \   return CheckResult.correct();\n                })),\n\n            new TestCase<TestClue>()\n\
+    \  return new CheckResult(false,\n                            \"No \\\"Enter action\\\
+    \" substring found in the output\");\n                    }\n                \
+    \    return CheckResult.correct();\n                })),\n\n            new TestCase<TestClue>()\n\
     \                .setInput(\n                    \"count\\n\" +\n            \
-    \        \"edit\\n\" +\n                    \"exit\")\n                .setAttach(new\
-    \ TestClue(output -> {\n                    output = output.strip().toLowerCase();\n\
-    \                    if (!output.contains(\"no records to edit\")) {\n       \
-    \                 return new CheckResult(false,\n                            \"\
-    No \\\"No records to edit\\\" part \" +\n                                \"in\
-    \ the responsesFromClient in a place where it should be\");\n                \
-    \    }\n                    return CheckResult.correct();\n                })),\n\
+    \        \"exit\")\n                .setAttach(new TestClue(output -> {\n    \
+    \                output = output.strip().toLowerCase();\n                    if\
+    \ (!output.contains(\"0 records\")) {\n                        return new CheckResult(false,\n\
+    \                            \"No \\\"0 records\\\" substring found in the output.\
+    \ \" +\n                                    \"If you already have the database,\
+    \ try to delete it.\");\n                    }\n                    return CheckResult.correct();\n\
+    \                })),\n\n            new TestCase<TestClue>()\n              \
+    \  .setInput(\n                    \"count\\n\" +\n                    \"edit\\\
+    n\" +\n                    \"exit\")\n                .setAttach(new TestClue(output\
+    \ -> {\n                    output = output.strip().toLowerCase();\n         \
+    \           if (!output.contains(\"no records to edit\")) {\n                \
+    \        return new CheckResult(false,\n                            \"No \\\"\
+    No records to edit\\\" substring found in the output\");\n                   \
+    \ }\n                    return CheckResult.correct();\n                })),\n\
     \n            new TestCase<TestClue>()\n                .setInput(\n         \
     \           \"count\\n\" +\n                    \"remove\\n\" +\n            \
     \        \"exit\")\n                .setAttach(new TestClue(output -> {\n    \
     \                output = output.strip().toLowerCase();\n                    if\
     \ (!output.contains(\"no records to remove\")) {\n                        return\
     \ new CheckResult(false,\n                            \"No \\\"No records to remove\\\
-    \" part \" +\n                                \"in the responsesFromClient in\
-    \ a place where it should be\");\n                    }\n                    return\
-    \ CheckResult.correct();\n                })),\n\n            new TestCase<TestClue>()\n\
+    \" substring found in the output\");\n                    }\n                \
+    \    return CheckResult.correct();\n                })),\n\n            new TestCase<TestClue>()\n\
     \                .setInput(\n                    \"add\\n\" +\n              \
     \          \"person\\n\" +\n                        \"John\\n\" +\n          \
     \              \"Smith\\n\" +\n                        \"\\n\" +\n           \
@@ -296,6 +294,30 @@ files:
             return getId() + "." + " " + getName() + " " + getSurname() + "," + " " + (HasNumber() ? getPhoneNumber() : " [no number]");
         }
     }
+  learner_created: true
+- name: src/contacts/AbstractRecord.java
+  visible: true
+  learner_created: true
+- name: src/contacts/Person.java
+  visible: true
+  learner_created: true
+- name: src/contacts/Organization.java
+  visible: true
+  learner_created: true
+- name: src/contacts/InitializationRecordTypeFactory.java
+  visible: true
+  learner_created: true
+- name: src/contacts/ActionReceiver.java
+  visible: true
+  learner_created: true
+- name: src/contacts/ICommandAction.java
+  visible: true
+  learner_created: true
+- name: src/contacts/AddAction.java
+  visible: true
+  learner_created: true
+- name: src/contacts/ActionExecutor.java
+  visible: true
   learner_created: true
 feedback_link: https://hyperskill.org/projects/43/stages/230/implement
 status: Unchecked

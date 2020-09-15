@@ -31,26 +31,26 @@ files:
     \        .setInput(\"exit\")\n                .setAttach(new TestClue(output ->\
     \ {\n                    output = output.strip().toLowerCase();\n            \
     \        if (!output.contains(\"enter action\")) {\n                        return\
-    \ new CheckResult(false,\n                            \"I didn't see where \\\"\
-    Enter action\\\" part in the responsesFromClient\");\n                    }\n\
-    \                    return CheckResult.correct();\n                })),\n\n \
-    \           new TestCase<TestClue>()\n                .setInput(\n           \
-    \         \"count\\n\" +\n                    \"exit\")\n                .setAttach(new\
-    \ TestClue(output -> {\n                    output = output.strip().toLowerCase();\n\
-    \                    if (!output.contains(\"0 records\")) {\n                \
-    \        return new CheckResult(false,\n                            \"No \\\"\
-    0 records\\\" part \" +\n                                \"in the responsesFromClient\
-    \ in a place where it should be\");\n                    }\n                 \
+    \ new CheckResult(false,\n                            \"No \\\"Enter action\\\"\
+    \ substring found in the output\");\n                    }\n                 \
     \   return CheckResult.correct();\n                })),\n\n            new TestCase<TestClue>()\n\
-    \                .setInput(\n                    \"add\\n\" +\n              \
-    \          \"person\\n\" +\n                        \"John\\n\" +\n          \
-    \              \"Smith\\n\" +\n                        \"\\n\" +\n           \
-    \             \"\\n\" +\n                        \"123 456 789\\n\" +\n      \
-    \              \"count\\n\" +\n                    \"exit\")\n               \
-    \ .setAttach(new TestClue(output -> {\n                    output = output.strip().toLowerCase();\n\
-    \                    if (output.contains(\"0 records\")) {\n                 \
-    \       return new CheckResult(false,\n                            \"Can't add\
-    \ the person\");\n                    }\n                    return CheckResult.correct();\n\
+    \                .setInput(\n                    \"count\\n\" +\n            \
+    \        \"exit\")\n                .setAttach(new TestClue(output -> {\n    \
+    \                output = output.strip().toLowerCase();\n                    if\
+    \ (!output.contains(\"0 records\")) {\n                        return new CheckResult(false,\n\
+    \                            \"No \\\"0 records\\\" substring found in the output.\
+    \ \" +\n                                    \"If you already have the database,\
+    \ try to delete it.\");\n                    }\n                    return CheckResult.correct();\n\
+    \                })),\n\n            new TestCase<TestClue>()\n              \
+    \  .setInput(\n                    \"add\\n\" +\n                        \"person\\\
+    n\" +\n                        \"John\\n\" +\n                        \"Smith\\\
+    n\" +\n                        \"\\n\" +\n                        \"\\n\" +\n\
+    \                        \"123 456 789\\n\" +\n                    \"count\\n\"\
+    \ +\n                    \"exit\")\n                .setAttach(new TestClue(output\
+    \ -> {\n                    output = output.strip().toLowerCase();\n         \
+    \           if (output.contains(\"0 records\")) {\n                        return\
+    \ new CheckResult(false,\n                            \"Can't add the person\"\
+    );\n                    }\n                    return CheckResult.correct();\n\
     \                })),\n\n            new TestCase<TestClue>()\n              \
     \  .setInput(\n                    \"add\\n\" +\n                        \"person\\\
     n\" +\n                        \"John\\n\" +\n                        \"Smith\\\
