@@ -34,11 +34,11 @@ public class Organization extends AbstractRecord {
 
         @Override
         public String toString() {
-                return "Organization:" + "\r\n" +
-                        "Organization name: " + super.getName() + "\r\n" +
-                        "address: " + address + "\r\n" +
-                        "number: " + super.getPhoneNumber() + "\r\n" +
-                        "Date time created: " + super.getDateTimeCreated()
+                return "Organization name: " + super.getName() + "\r\n" +
+                        "Address: " + getAddress() + "\r\n" +
+                        "Number: " + super.getPhoneNumber() + "\r\n" +
+                        "Time created: " + super.getDateTimeCreated() + "\r\n" +
+                        "Time last edit: " + super.getDateTimeLastEdit()
                         ;
         }
 }

@@ -6,28 +6,38 @@ import java.time.format.DateTimeParseException;
 
 public class Person extends AbstractRecord {
    private enum Gender {
-        M,
-        F,
-        INVALID;
+       M,
+       F,
+       INVALID;
+
        @Override
        public String toString() {
            return name();
        }
-    }
+   }
 
     private String mLastName;
     private Gender mGender;
     private LocalDate mBirthday;
+    private boolean mHasBirthday;
 
-    //TODO add some sort of regex to check if birthday is in correct format, although the format is not specified- but it specified by the LocalDate object itself
+    public boolean hasBirthday() {
+        return mBirthday != null;
+    }
+
+    public boolean hasGender() {
+        return !mGender.equals(Gender.INVALID);
+    }
+
+    private boolean hasGender;
 
     public String getGender() {
-        return mGender.toString();
+        return !mGender.equals(Gender.INVALID) ? mGender.toString() : "[no data]";
     }
 
     public void setGender(String gender) {
 
-        mGender = ( "M".equals(gender.toUpperCase()) || "F".equals(gender.toUpperCase())) ? Gender.valueOf(gender.toUpperCase()) : Gender.INVALID;
+        mGender = ("M".equals(gender.trim().toUpperCase()) || "F".equals(gender.trim().toUpperCase())) ? Gender.valueOf(gender.trim().toUpperCase()) : Gender.INVALID;
     }
 
     public LocalDate getBirthday() {
@@ -55,7 +65,7 @@ public class Person extends AbstractRecord {
      * @param name        String Person's name
      * @param lastName    String Person's lastname
      * @param birthday    String Person's birthday in a LocalDate datatype format
-     * @param gender      char Person's gender, could be 'M' or 'F'
+     * @param gender      String Person's gender, could be 'M' or 'F'
      * @param phoneNumber String Person's phone number
      */
     public Person(String name, String lastName, String birthday, String gender, String phoneNumber) {
@@ -76,13 +86,13 @@ public class Person extends AbstractRecord {
 
     @Override
     public String toString() {
-        return "Person{"
-                + "Name: " + getName() +
-
-                " LastName= " + mLastName + '\'' +
-                ", Gender= " + mGender +
-                ", Birthday= " + mBirthday +
-                " PhoneNumber: " + getPhoneNumber() +
-                '}';
+        return "Name: " + getName() + "\r\n" +
+                "Surname: " + getLastName() + "\r\n" +
+                "Birth date: " + (getBirthday() != null ? getBirthday() : "[no data]") + "\r\n" +
+                "Gender: " + getGender() + "\r\n" +
+                "Number: " + super.getPhoneNumber() + "\r\n" +
+                "Time created: " + super.getDateTimeCreated() + "\r\n" +
+                "Time last edit: " + super.getDateTimeLastEdit()
+                ;
     }
 }

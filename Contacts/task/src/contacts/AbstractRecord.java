@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public abstract class AbstractRecord {
-    private int id;
+
     private String name;
     private String phoneNumber = "";
     private boolean hasNumber;
@@ -20,23 +20,12 @@ public abstract class AbstractRecord {
         recordList.add(this);
     }
 
-    public static void setRecordList(List<AbstractRecord> recordList) {
-        AbstractRecord.recordList = recordList;
-    }
-
     public AbstractRecord(String name, String phoneNumber) {
         setName(name);
         setPhoneNumber(phoneNumber);
         recordList.add(this);
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
     public static List<AbstractRecord> getRecordList() {
         return recordList;
     }
@@ -54,7 +43,7 @@ public abstract class AbstractRecord {
     }
 
     public String getPhoneNumber() {
-        return phoneNumber;
+        return (HasNumber() ? phoneNumber : "[no number]");
     }
 
     public void setPhoneNumber(String phoneNumber) {
@@ -81,10 +70,10 @@ public abstract class AbstractRecord {
                 + "|^(\\+?\\d{1,3}?()?)?[- ]((\\(\\d{2,4}\\))|\\d{2,4})[-\\s]?(\\d{2,4}){0,4}$"
                 + "|^(\\+?\\d{1,3}( )?)?[\\s-](\\d{2}[ -]?){2}\\d{2}$"
                 + "|^(\\+?\\(?\\d{1,3}\\)?)$"
-                + "|^(\\+?\\d{1,3}?()?)?[-\\s]((\\(\\d{2,4}\\))|\\d{2,4})[-\\s]?(\\d{2,4})[- ]?(\\d{2,4})[-\\s]?([a-zA-Z0-9]{2,4})?$"
+                + "|^(\\+?\\d{1,3}?()?)?[-\\s]((\\(\\d{2,4}\\))|\\d{2,4})[-\\s]?(\\d{2,4})[- ]?(\\d{2,4})[-\\s]?([a-zA-Z0-9]{2,})?$"
                 + "|^(\\+?\\(?\\d{1,3}\\)?)[-\\s]?[a-zA-Z]{2,4}$"
-                + "|^(\\+?\\d{1,3}( )?)?(\\d{2,4}[\\s\\-]?){1,4}\\d{2,4}[\\s\\-]?[a-zA-Z]{2,4}$"
-                + "|^(\\+?\\d{1,3}( )?)?(\\d{2,4}[\\s\\-]?){1,4}\\d{2,4}[\\s\\-]?[a-zA-Z]{0,4}[\\s\\-]?\\d{2,4}$"
+                + "|^(\\+?\\d{1,3}( )?)?(\\d{2,4}[\\s\\-]?){1,4}\\d{2,4}[\\s\\-]?[a-zA-Z]{2,}$"
+                + "|^(\\+?\\d{1,3}( )?)?(\\d{2,4}[\\s\\-]?){1,4}\\d{2,4}[\\s\\-]?[a-zA-Z]{0,4}[\\s\\-]?\\d{2,}$"
                 + "|^(\\+?\\(?\\d{1,3}\\))[\\s\\-]?(\\d{2,4}[- ]?){0,3}$";
 
         Pattern pattern = Pattern.compile(pat);
@@ -97,14 +86,14 @@ public abstract class AbstractRecord {
     }
 
     public void setDateTimeLastEdit(LocalDateTime dateTimeLastEdit) {
-        this.mDateTimeLastEdit = dateTimeLastEdit;
+        this.mDateTimeLastEdit = dateTimeLastEdit == null ? LocalDateTime.now() : dateTimeLastEdit;
     }
 
     @Override
     public String toString() {
         return "AbstractRecord{" +
-                "name='" + name + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
+                "name='" + getName() + '\'' +
+                ", phoneNumber='" + getPhoneNumber() + '\'' +
                 ", hasNumber=" + hasNumber +
                 ", mDateTimeCreated=" + mDateTimeCreated +
                 ", mDateTimeLastEdit=" + mDateTimeLastEdit +

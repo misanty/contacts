@@ -5,4 +5,5 @@ package contacts;
  */
 public interface ICommandAction {
     AbstractRecord execute();
+    boolean status();
 }

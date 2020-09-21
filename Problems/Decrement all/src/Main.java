@@ -8,6 +8,8 @@ class Main {
                 .toArray();
         for (int val : values) {
             System.out.print(val - 1 + " ");
+
+
         }
 
     }

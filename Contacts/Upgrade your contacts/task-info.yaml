@@ -213,88 +213,6 @@ files:
     \      catch (Exception ex) {\n            return new CheckResult(false, \"Can't\
     \ check the answer\");\n        }\n    }\n}\n"
   learner_created: false
-- name: src/contacts/Contacts.java
-  visible: true
-  text: |
-    package contacts;
-
-    import java.util.regex.Matcher;
-    import java.util.regex.Pattern;
-
-    public class Contacts {
-        private int id;
-        private String name;
-        private String surname;
-        private String phoneNumber = "";
-        private boolean hasNumber;
-
-        public int getId() {
-            return id;
-        }
-
-        public void setId(int id) {
-            this.id = id;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getSurname() {
-            return surname;
-        }
-
-        public void setSurname(String surname) {
-            this.surname = surname;
-        }
-
-        public String getPhoneNumber() {
-            return phoneNumber;
-        }
-
-        public void setPhoneNumber(String phoneNumber) {
-            this.phoneNumber = checkNumberValidity(phoneNumber) ? phoneNumber : "";
-
-        }
-
-        private void setHasNumber() {
-            this.hasNumber = !this.phoneNumber.equals("");
-
-        }
-
-        public boolean HasNumber() {
-            setHasNumber();
-            return hasNumber;
-        }
-
-        private boolean checkNumberValidity(String phoneNumber) {
-
-            String pat = "^(\\+?\\(\\d{1,3}\\)()?)[\\-\\s]?((\\d{2,4})|\\d{2,4})[\\-\\s]?(\\d{2,4})[\\-\\s]?(\\d{2,4})[\\-\\s]?([a-zA-Z0-9]{1,4})?$"
-                    + "|^(\\+?\\d{1,3}( )?)?(\\d{2,4}[\\s\\-]?){1,4}\\d{1,4}$"
-                    + "|^(\\+\\([a-zA-Z]{2,}\\)[ ]?)$"
-                    + "|^(\\+?\\d{1,3}?()?)?[- ]((\\(\\d{2,4}\\))|\\d{2,4})[-\\s]?(\\d{2,4}){0,4}$"
-                    + "|^(\\+?\\d{1,3}( )?)?[\\s-](\\d{2}[ -]?){2}\\d{2}$"
-                    + "|^(\\+?\\(?\\d{1,3}\\)?)$"
-                    + "|^(\\+?\\d{1,3}?()?)?[-\\s]((\\(\\d{2,4}\\))|\\d{2,4})[-\\s]?(\\d{2,4})[- ]?(\\d{2,4})[-\\s]?([a-zA-Z0-9]{1,4})?$";
-
-            Pattern pattern = Pattern.compile(pat);
-            Matcher matcher = pattern.matcher(phoneNumber);
-
-            boolean ret = matcher.matches();
-            return ret;
-        }
-
-        @Override
-        public String toString() {
-
-            return getId() + "." + " " + getName() + " " + getSurname() + "," + " " + (HasNumber() ? getPhoneNumber() : " [no number]");
-        }
-    }
-  learner_created: true
 - name: src/contacts/AbstractRecord.java
   visible: true
   learner_created: true
@@ -313,12 +231,19 @@ files:
 - name: src/contacts/ICommandAction.java
   visible: true
   learner_created: true
-- name: src/contacts/AddAction.java
-  visible: true
-  learner_created: true
 - name: src/contacts/ActionExecutor.java
   visible: true
   learner_created: true
+- name: src/contacts/ActionEnum.java
+  visible: true
+  learner_created: true
+- name: src/contacts/AbstractEdit.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/43/stages/230/implement
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations! Continue on <a href="https://hyperskill.org/projects/43/stages/230/implement">JetBrains
+    Academy</a>
+  time: Sun, 20 Sep 2020 22:52:47 UTC
 record: 2
