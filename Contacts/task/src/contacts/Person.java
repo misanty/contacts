@@ -37,7 +37,7 @@ public class Person extends AbstractRecord {
 
     public void setGender(String gender) {
 
-        mGender = ("M".equals(gender.trim().toUpperCase()) || "F".equals(gender.trim().toUpperCase())) ? Gender.valueOf(gender.trim().toUpperCase()) : Gender.INVALID;
+        mGender = ("M".equalsIgnoreCase(gender.trim()) || "F".equalsIgnoreCase(gender.trim())) ? Gender.valueOf(gender.trim().toUpperCase()) : Gender.INVALID;
     }
 
     public LocalDate getBirthday() {

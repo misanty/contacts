@@ -1,15 +1,59 @@
 package contacts;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Main {
     static ActionReceiver receiver;
 
     public static void main(String[] args) {
-        initialize();
+        //initialize();
+
+        String path = "./Desktop/Head First Design Patterns ( PDFDrive.com ).pdf";
+        File file = new File(path);
+        System.out.println("File name: " + file.getName());
+        System.out.println("File path: " + file.getPath());
+        System.out.println("Is file: " + file.isFile());
+        System.out.println("Is directory: " + file.isDirectory());
+        System.out.println("Exists: " + file.exists());
+        System.out.println("Can read:" + file.canRead());
+        // System.out.println(calc(file));
 
 
     }
+
+    public static String readFileAsString(String fileName) throws IOException {
+        return new String(Files.readAllBytes(Paths.get(fileName)));
+    }
+
+    private static int calc(File file) {
+        int count = 0;
+
+
+        try (Scanner sc = new Scanner(file)) {
+            while (sc.hasNext()) {
+                if (sc.nextInt() % 2 == 0) {
+                    count++;
+                }
+
+            }
+
+        } catch (FileNotFoundException e) {
+            System.out.println("The file does not exist.");
+        } catch (NumberFormatException e) {
+            System.out.println("The file contains non numeric data.");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+
+        return 0;
+    }
+
 
     public static void initialize() {
         Scanner scanner;
