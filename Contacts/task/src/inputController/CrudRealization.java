@@ -4,7 +4,6 @@ import domain.Contact;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -38,7 +37,7 @@ public class CrudRealization implements RepositoryCrud {
     public Contact findById(int id) {
 
         return isValidIndex(id) ? contactList.get(id) : null;
-        // return isValidIndex(id) ? List.of(contactList.get(id)) : Collections.emptyList();
+
     }
 
     @Override
@@ -84,17 +83,12 @@ public class CrudRealization implements RepositoryCrud {
 
     @Override
     public List<Contact> search(String searchQuery) {
-        /*
-         * TODO here you should create a search using with regex which search for at the beginning, middle or end of the string of the related fields.
-         *  You can try something like this https://stackoverflow.com/questions/24797857/java-filtering-list-entries-by-regex
-         *  return the list then
-         */
-        //TODO append all of the values from all of the fields and check if this string contains a search request.
+
 
         String pattern = "^.*\\w*((?i)" + searchQuery + "(?-i))\\w*.*$";
-        // Create a Pattern object
+
         Pattern r = Pattern.compile(pattern);
-        //getList().getClass().getField()
+
 
         if (!getList().isEmpty()) {
             return getList().stream().filter(s ->( s.getName().matches(pattern) || s.getValueOfFieldName("surname").matches(pattern) )|| s.getPhoneNumber().matches(pattern)).collect(Collectors.toList());

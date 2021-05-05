@@ -56,7 +56,6 @@ public class Menu implements Executive {
 
     private void selectAndExecute(){
         printList();
-        //changed here from nextLine() to next()
         String input = scanner.next().trim().toUpperCase();
         MenuOption.stream()
                 .filter(item -> item.name().equals(input))

@@ -98,7 +98,7 @@ public class Person extends Contact {
             case "number":
                 return getPhoneNumber();
             default: return "";
-            //TODO boş alanlar için bad gender ve bad birthdate gibi olan yerleri ekle
+
 
         }
     }

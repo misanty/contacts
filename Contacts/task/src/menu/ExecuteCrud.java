@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class ExecuteCrud {
 
-    //TODO Fix nextline issues,
+
     private static Scanner scanner = new Scanner(System.in);
     private static ExecuteCrud executeCrudInstance;
     private final RepositoryCrud crud;
@@ -32,7 +32,7 @@ public class ExecuteCrud {
     }
 
     protected void add() {
-        //changed here
+
         String type = scanner.nextLine();
         Contact contact = null;
         switch (type.toLowerCase().strip()) {
@@ -90,7 +90,6 @@ public class ExecuteCrud {
                 System.out.println("Wrong format!");
                 break;
         }
-        //  System.out.println();
 
 
     }
@@ -135,7 +134,7 @@ public class ExecuteCrud {
         }
         if (crud.isEmpty()) {
             System.out.println("No records to show!\n");
-            // System.out.println("\n");
+
             return false;
         }
 
@@ -147,7 +146,7 @@ public class ExecuteCrud {
             contact = crud.findById(Integer.parseInt(out) - 1);
             if (contact != null) {
                 System.out.println(contact.getDetailedInfo());
-                //System.out.println("\n");
+
                 edit();
             } else {
                 System.out.println("Wrong id!");
@@ -164,12 +163,12 @@ public class ExecuteCrud {
 
         if (!crud.isEmpty()) {
             System.out.print("Enter search query: ");
-            //Changed here
+
             List<Contact> results = crud.search(scanner.nextLine());
 
             if (results.size() > 0) {
                 System.out.printf("Found %d results:%n", results.size());
-                //iterateSearch(results.listIterator());
+
                 iterateSearch(results);
             } else {
                 System.out.println("Found 0 results");
@@ -177,11 +176,11 @@ public class ExecuteCrud {
             }
 
             System.out.print("[search]Enter action ([number], back, again): ");
-            //changed here
+
             String out = scanner.nextLine();
             switch (out.toLowerCase()) {
                 case "back":
-                    //System.out.println("\n");
+
                     return false;
 
                 case "again":
@@ -212,20 +211,6 @@ public class ExecuteCrud {
 
 
     }
-/*
-    private void iterateSearch(ListIterator<Contact> search) {
-        int count = 1;
-        searchResult.clear();
-
-        while (search.hasNext()) {
-            searchResult.put(count, search.next());
-            System.out.println(count + " - " + search.next().getShortInfo());
-            count++;
-        }
-        System.out.println();
-
-
-    }*/
 
     private String readWriteFieldName(String fieldName) {
         System.out.print("Enter " + fieldName + ": ");
