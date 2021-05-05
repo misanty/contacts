@@ -9,7 +9,6 @@ public class Main {
         double k = scanner.nextDouble();
 
         if (m <= k) {
-            System.out.println();
             System.out.println((int) Math.ceil(calculate(m, p, k)));
         }
 
@@ -17,8 +16,7 @@ public class Main {
     }
 
     public static double calculate(double m, double p, double k) {
-        double logBase;
-        logBase = (m + (m * (p * 0.01)));
-        return Math.log(k) / Math.log(logBase);
+       
+       return Math.log(k / m) / Math.log(1 + (p * 0.01));
     }
 }

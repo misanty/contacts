@@ -2,10 +2,10 @@ import java.util.Scanner;
 
 class Robot {
 
-    private String CPU;
-    private int legs;
-    private int hands;
-    private int eyes;
+    private final String CPU;
+    private final int legs;
+    private final int hands;
+    private final int eyes;
 
     Robot(String CPU, int legs, int hands, int eyes) {
         this.CPU = CPU;

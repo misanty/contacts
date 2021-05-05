@@ -14,31 +14,30 @@ files:
   learner_created: false
 - name: test/ContactsTest.java
   visible: false
-  text: "import contacts.Main;\nimport org.hyperskill.hstest.stage.StageTest;\nimport\
-    \ org.hyperskill.hstest.testcase.CheckResult;\nimport org.hyperskill.hstest.testcase.TestCase;\n\
-    \nimport java.util.List;\nimport java.util.function.Function;\n\n\nclass TestClue\
-    \ {\n\n    Function<String, CheckResult> callback;\n\n    TestClue(Function<String,\
-    \ CheckResult> callback) {\n        this.callback = callback;\n    }\n}\n\n\n\
-    public class ContactsTest extends StageTest<TestClue> {\n\n    public ContactsTest()\
-    \ {\n        super(Main.class);\n    }\n    private CheckResult splitActionsFeedback(int\
-    \ actualSize, int needSize) {\n        if (actualSize < needSize) {\n        \
-    \    return CheckResult.wrong(String.format(\"This test should contain at least\
-    \ %d actions, but you have only %d. \" +\n                            \"You should\
-    \ separate your actions with an empty line.\",\n                    needSize,\n\
-    \                    actualSize));\n        } else {\n            return null;\n\
-    \        }\n    }\n    \n    @Override\n    public List<TestCase<TestClue>> generate()\
-    \ {\n        return List.of (\n            new TestCase<TestClue>()\n        \
-    \        .setInput(\"exit\")\n                .setAttach(new TestClue(output ->\
-    \ {\n                    output = output.strip().toLowerCase();\n            \
-    \        if (!output.contains(\"enter action\")) {\n                        return\
-    \ new CheckResult(false,\n                            \"No \\\"Enter action\\\"\
-    \ substring found in the output\");\n                    }\n                 \
-    \   return CheckResult.correct();\n                })),\n\n            new TestCase<TestClue>()\n\
-    \                .setInput(\n                    \"count\\n\" +\n            \
-    \        \"exit\")\n                .setAttach(new TestClue(output -> {\n    \
-    \                output = output.strip().toLowerCase();\n                    if\
-    \ (!output.contains(\"0 records\")) {\n                        return new CheckResult(false,\n\
-    \                            \"No \\\"0 records\\\" substring found in the output.\
+  text: "import org.hyperskill.hstest.stage.StageTest;\nimport org.hyperskill.hstest.testcase.CheckResult;\n\
+    import org.hyperskill.hstest.testcase.TestCase;\n\nimport java.util.List;\nimport\
+    \ java.util.function.Function;\n\n\nclass TestClue {\n\n    Function<String, CheckResult>\
+    \ callback;\n\n    TestClue(Function<String, CheckResult> callback) {\n      \
+    \  this.callback = callback;\n    }\n}\n\n\npublic class ContactsTest extends\
+    \ StageTest<TestClue> {\n\n    private CheckResult splitActionsFeedback(int actualSize,\
+    \ int needSize) {\n        if (actualSize < needSize) {\n            return CheckResult.wrong(String.format(\"\
+    This test should contain at least %d actions, but you have only %d. \" +\n   \
+    \                         \"You should separate your actions with an empty line.\"\
+    ,\n                    needSize,\n                    actualSize));\n        }\
+    \ else {\n            return null;\n        }\n    }\n    \n    @Override\n  \
+    \  public List<TestCase<TestClue>> generate() {\n        return List.of (\n  \
+    \          new TestCase<TestClue>()\n                .setInput(\"exit\")\n   \
+    \             .setAttach(new TestClue(output -> {\n                    output\
+    \ = output.strip().toLowerCase();\n                    if (!output.contains(\"\
+    enter action\")) {\n                        return new CheckResult(false,\n  \
+    \                          \"No \\\"Enter action\\\" substring found in the output\"\
+    );\n                    }\n                    return CheckResult.correct();\n\
+    \                })),\n\n            new TestCase<TestClue>()\n              \
+    \  .setInput(\n                    \"count\\n\" +\n                    \"exit\"\
+    )\n                .setAttach(new TestClue(output -> {\n                    output\
+    \ = output.strip().toLowerCase();\n                    if (!output.contains(\"\
+    0 records\")) {\n                        return new CheckResult(false,\n     \
+    \                       \"No \\\"0 records\\\" substring found in the output.\
     \ \" +\n                                    \"If you already have the database,\
     \ try to delete it.\");\n                    }\n                    return CheckResult.correct();\n\
     \                })),\n\n            new TestCase<TestClue>()\n              \
@@ -203,6 +202,39 @@ files:
     \        }\n        catch (Exception ex) {\n            return new CheckResult(false,\
     \ \"Can't check the answer\");\n        }\n    }\n}\n"
   learner_created: false
+- name: src/domain/Contact.java
+  visible: true
+  learner_created: true
+- name: src/domain/Organization.java
+  visible: true
+  learner_created: true
+- name: src/domain/Person.java
+  visible: true
+  learner_created: true
+- name: src/inputController/CrudRealization.java
+  visible: true
+  learner_created: true
+- name: src/inputController/RepositoryCrud.java
+  visible: true
+  learner_created: true
+- name: src/menu/ExecuteCrud.java
+  visible: true
+  learner_created: true
+- name: src/menu/Executive.java
+  visible: true
+  learner_created: true
+- name: src/menu/Menu.java
+  visible: true
+  learner_created: true
+- name: src/menu/MenuOption.java
+  visible: true
+  learner_created: true
+- name: src/Contact.db
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/43/stages/231/implement
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Wed, 05 May 2021 18:13:13 UTC
 record: -1
