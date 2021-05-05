@@ -3,7 +3,7 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/204791/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: Wed, 05 May 2021 00:12:29 UTC
+update_date: Wed, 05 May 2021 17:01:44 UTC
 stages:
 - id: 228
   step: 5324
@@ -16,15 +16,13 @@ stages:
   is_completed: true
 - id: 231
   step: 5327
-  is_completed: false
+  is_completed: true
 topics:
   0:
   - title: Immutability
     theory_id: 7929
   - title: Units of information
     theory_id: 6865
-  - title: Introduction to operating systems
-    theory_id: 9704
   - title: IDE
     theory_id: 10996
   - title: Computer algorithms
@@ -37,8 +35,10 @@ topics:
     theory_id: 7255
   - title: Dynamic array
     theory_id: 5357
-  - title: Introduction to OOP
-    theory_id: 3614
+  - title: Introduction to operating systems
+    theory_id: 9704
+  - title: Computer programming
+    theory_id: 8739
   - title: Introduction to Java
     theory_id: 3500
   - title: Basic literals
@@ -57,6 +57,8 @@ topics:
     theory_id: 3513
   - title: Scanning the input
     theory_id: 9055
+  - title: Introduction to OOP
+    theory_id: 3614
   - title: Arithmetic operations
     theory_id: 3519
   - title: Integer types and operations
@@ -95,12 +97,6 @@ topics:
     theory_id: 3532
   - title: Type casting
     theory_id: 3510
-  - title: Command line overview
-    theory_id: 8977
-  - title: Parameters and options
-    theory_id: 9746
-  - title: Running programs on your computer
-    theory_id: 3746
   - title: Calling a method
     theory_id: 10973
   - title: Declaring a method
@@ -129,6 +125,12 @@ topics:
     theory_id: 5819
   - title: EduTools
     theory_id: 5839
+  - title: Command line overview
+    theory_id: 8977
+  - title: Parameters and options
+    theory_id: 9746
+  - title: Running programs on your computer
+    theory_id: 3746
   - title: IntelliJ Run Configurations
     theory_id: 10630
   - title: Introduction to generic programming
@@ -226,14 +228,14 @@ topics:
   3:
   - title: What are streams
     theory_id: 5533
-  - title: Command-line arguments
-    theory_id: 3566
   - title: Formatted output
     theory_id: 7046
   - title: Hierarchy of exceptions
     theory_id: 3570
   - title: Exception handling
     theory_id: 3552
+  - title: Command-line arguments
+    theory_id: 3566
   - title: Files
     theory_id: 3635
   - title: Reading files

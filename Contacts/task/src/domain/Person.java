@@ -67,7 +67,7 @@ public class Person extends Contact {
     @Override
     public String getShortInfo() {
 
-        return "Name: " + getName() + " Surname: " + getSurname();
+        return  getName() + " " + getSurname();
     }
 
     @Override

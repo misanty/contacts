@@ -36,7 +36,7 @@ public class Menu implements Executive {
 
     @Override
     public void returnState(String str) {
-        System.out.println(str);
+        System.out.print(str);
 
 
     }
@@ -46,17 +46,18 @@ public class Menu implements Executive {
     }
 
     private void printList() {
-        String output = "[menu] Enter Action(" +
+        String output = "[menu] Enter action (" +
                 MenuOption.stream()
                         .map(MenuOption::toString)
                         .collect(Collectors.joining(", "))
                 + "): ";
-        System.out.println(output);
+        System.out.print(output);
     }
 
     private void selectAndExecute(){
         printList();
-        String input = scanner.nextLine().trim().toUpperCase();
+        //changed here from nextLine() to next()
+        String input = scanner.next().trim().toUpperCase();
         MenuOption.stream()
                 .filter(item -> item.name().equals(input))
                 .findFirst()

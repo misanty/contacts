@@ -5,7 +5,7 @@ enum MenuOption implements Runnable {
     ADD {
         @Override
         public void execute() {
-            executive.returnState("Enter the type (person, organization):");
+            executive.returnState("Enter the type (person, organization): ");
             executive.init().add();
         }
     },

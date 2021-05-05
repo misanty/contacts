@@ -32,6 +32,7 @@ public class ExecuteCrud {
     }
 
     protected void add() {
+        //changed here
         String type = scanner.nextLine();
         Contact contact = null;
         switch (type.toLowerCase().strip()) {
@@ -71,7 +72,7 @@ public class ExecuteCrud {
 
     protected void edit() {
 
-        System.out.println("[record] Enter action (edit, delete, menu): ");
+        System.out.print("[record] Enter action (edit, delete, menu): ");
 
         String out = scanner.nextLine();
         switch (out) {
@@ -127,8 +128,9 @@ public class ExecuteCrud {
 
         ListIterator<Contact> iterator = crud.getList().listIterator();
         int count = 1;
+
         while (iterator.hasNext()) {
-            System.out.println(count + " - " + iterator.next().getShortInfo());
+            System.out.println(count + "." + " " + iterator.next().getShortInfo());
             count++;
         }
         if (crud.isEmpty()) {
@@ -138,7 +140,7 @@ public class ExecuteCrud {
         }
 
 
-        System.out.println("\n[list] Enter action ([number], back):");
+        System.out.print("\n[list] Enter action ([number], back): ");
         String out = scanner.nextLine();
         if (out.matches("^\\d+$")) {
 
@@ -147,9 +149,13 @@ public class ExecuteCrud {
                 System.out.println(contact.getDetailedInfo());
                 //System.out.println("\n");
                 edit();
-                return false;
+            } else {
+                System.out.println("Wrong id!");
             }
-        } else return !"back".equals(out);
+            return false;
+        } else if ("back".equals(out)) {
+            return false;
+        }
         return true;
 
     }
@@ -157,7 +163,8 @@ public class ExecuteCrud {
     protected boolean search() {
 
         if (!crud.isEmpty()) {
-            System.out.println("Enter search query: ");
+            System.out.print("Enter search query: ");
+            //Changed here
             List<Contact> results = crud.search(scanner.nextLine());
 
             if (results.size() > 0) {
@@ -166,16 +173,19 @@ public class ExecuteCrud {
                 iterateSearch(results);
             } else {
                 System.out.println("Found 0 results");
+                return false;
             }
 
-            System.out.println("[search]Enter action ([number], back, again):");
+            System.out.print("[search]Enter action ([number], back, again): ");
+            //changed here
             String out = scanner.nextLine();
             switch (out.toLowerCase()) {
-                case "back" :
+                case "back":
                     //System.out.println("\n");
                     return false;
 
-                case "again": search();
+                case "again":
+                    search();
             }
             if (out.matches("^\\d+$")) {
                 int id = Integer.parseInt(out);
@@ -196,8 +206,9 @@ public class ExecuteCrud {
     private void iterateSearch(List<Contact> search) {
         for (int i = 1; i <= search.size(); i++) {
             searchResult.put(i, search.get(i - 1));
-            System.out.println(i + " - " + search.get(i - 1).getShortInfo());
+            System.out.println(i + "." + " " + search.get(i - 1).getShortInfo());
         }
+        System.out.println();
 
 
     }

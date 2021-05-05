@@ -81,7 +81,7 @@ public class Organization extends Contact {
     @Override
     public String getShortInfo() {
 
-        return "Name: " + getName() + " Address: " + getAddress();
+        return  getName();
     }
 
 
