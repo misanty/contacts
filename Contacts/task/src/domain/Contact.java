@@ -7,6 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public abstract class Contact implements Serializable {
+
     private final Pattern phonePattern = Pattern.compile("\\+?" +
             "((\\([0-9A-Za-z]+\\)|[0-9A-Za-z]+)"
             + "|([0-9A-Za-z]+[ -]\\([0-9A-Za-z]{2,}\\))|[0-9A-Za-z]+[ -][0-9A-Za-z]{2,})"
@@ -27,14 +28,16 @@ public abstract class Contact implements Serializable {
     private String name;
 
     private String phoneNumber;
-    private final LocalDate dateCreated;
-    private final LocalDate dateEdited;
+    private LocalDate dateCreated;
+    private LocalDate dateEdited;
 
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    abstract public String getInfo();
+    abstract public String getShortInfo();
+
+    abstract public String getDetailedInfo();
 
     abstract public List<String> possibleFields();
 
@@ -55,6 +58,14 @@ public abstract class Contact implements Serializable {
         return dateEdited;
     }
 
+    public boolean setFieldAndTime(String fieldName, String value) {
+        boolean result = changeFieldValue(fieldName, value);
+        if (result) {
+            dateEdited = LocalDate.now();
+        }
+        return result;
+    }
+
     public boolean isNumberCorrectIfSoSetNumber(String phoneNumber) {
         boolean returnMatch;
         Matcher matcher = phonePattern.matcher(phoneNumber);
@@ -62,8 +73,6 @@ public abstract class Contact implements Serializable {
         this.phoneNumber = returnMatch ? phoneNumber : "";
         return returnMatch;
     }
-
-
 
 
 }

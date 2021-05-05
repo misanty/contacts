@@ -43,8 +43,10 @@ public class Organization extends Contact {
         switch (fields) {
             case NAME:
                 return setName(value);
+
             case NUMBER:
                 return isNumberCorrectIfSoSetNumber(value);
+
             case ADDRESS:
                 return setAddress(value);
             default:
@@ -69,19 +71,27 @@ public class Organization extends Contact {
                     return getAddress();
                 case NUMBER:
                     return getPhoneNumber();
-                default:
-                    throw new IllegalArgumentException();
             }
         } catch (Exception e) {
             return "";
         }
-
+        return "";
     }
 
     @Override
-    public String getInfo() {
+    public String getShortInfo() {
 
-        return "Name: " + getName() + "Surname: " + getAddress();
+        return "Name: " + getName() + " Address: " + getAddress();
     }
 
+
+    @Override
+    public String getDetailedInfo() {
+        return "Organization name: " + getName() + "\r\n" +
+                "Address: " + getAddress() + "\r\n" +
+                "Number: " + getPhoneNumber() + "\r\n" +
+                "Time created: " + getDateCreated() + "\r\n" +
+                "Time last edit: " + getDateEdited() + "\r\n"
+                ;
+    }
 }

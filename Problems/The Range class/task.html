@@ -2,9 +2,8 @@
 <html>
  <head></head>
  <body>
-  <p>The <code class="java">Range</code> class is supposed to represent an integer range. Its invariants restrict the start and the end of the range so that the value of the<code class="java">from</code> field is not greater than the one of the <code class="java">to</code> field.</p> 
-  <p>This class is serializable and there's a chance that the invariants can break during serialization/deserialization. Improve the class definition so that it preserves class invariants during deserialization.</p> 
-  <p>If the deserialized object breaks the invariant, throw <code class="java">IllegalArgumentException</code> like a constructor does.</p>
+  <p>The <code class="java">Range</code> class is supposed to represent an integer range. Its invariants restrict the start and the end of the range so that the value of the <code class="java">from</code> field is not greater than the one of the <code class="java">to</code> field.</p> 
+  <p>Unfortunately, there's a chance that the invariants can break during serialization/deserialization. You need to improve the class so that it preserves the invariants during deserialization (i.e. <code class="java">from &lt;= to</code>). When the deserialized object breaks the invariant, throw <code class="java">IllegalArgumentException</code>. Pay attention to the constructor since it provides a good example of the required behavior.</p>
  </body>
 </html><br><br><font color="gray">Memory limit: 256 MB</font><br><font color="gray">Time limit: 8 seconds</font><br><br>
 <b>Caution</b><br><br>

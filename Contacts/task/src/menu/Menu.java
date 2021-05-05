@@ -30,8 +30,14 @@ public class Menu implements Executive {
     }
 
     @Override
+    public ExecuteCrud init() {
+        return mExecuteCrud;
+    }
+
+    @Override
     public void returnState(String str) {
-        System.out.println("From Menu: " + str);
+        System.out.println(str);
+
 
     }
 
@@ -40,7 +46,7 @@ public class Menu implements Executive {
     }
 
     private void printList() {
-        String output = "Enter Action(" +
+        String output = "[menu] Enter Action(" +
                 MenuOption.stream()
                         .map(MenuOption::toString)
                         .collect(Collectors.joining(", "))

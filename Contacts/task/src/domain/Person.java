@@ -5,49 +5,74 @@ import java.time.format.DateTimeParseException;
 import java.util.List;
 
 public class Person extends Contact {
+    private enum Gender {
+        M,
+        F,
+        INVALID;
+
+        @Override
+        public String toString() {
+            return name();
+        }
+    }
+
     private String surname;
-    private String gender;
+    private Gender gender;
     private LocalDate birthdate;
+    private boolean hasGender;
+    private boolean hasBirthday;
+
 
     public String getSurname() {
         return surname;
     }
 
-    public void setSurname(String surname) {
+    public boolean setSurname(String surname) {
         this.surname = surname;
+        return true;
     }
 
+    public boolean setGender(String genderInp) {
 
-    @Override
-    public String getInfo() {
+        gender = ("M".equalsIgnoreCase(genderInp.trim()) || "F".equalsIgnoreCase(genderInp.trim())) ? Gender.valueOf(genderInp.trim().toUpperCase()) : Gender.INVALID;
+        return hasGender();
+    }
 
-        return "Name: "+getName()+ "Surname: "+getSurname();
+    public boolean hasGender() {
+        return !gender.equals(Gender.INVALID);
     }
 
     public String getGender() {
-        return gender;
+        return hasGender() ? gender.toString() : "[no data]";
     }
 
-    public void setGender(String gender) {
 
-        this.gender = "F".equalsIgnoreCase(gender) || "M".equalsIgnoreCase(gender) ? gender.toUpperCase() : "[no data]";
-    }
-
-    public String getBirthdate() {
-        return birthdate != null ? birthdate.toString() : "[no data]";
-    }
-
-    public void setBirthdate(String birthdate) {
+    public boolean setBirthday(String birthday) {
         try {
-            this.birthdate = LocalDate.parse(birthdate);
+            this.birthdate = LocalDate.parse(birthday);
         } catch (DateTimeParseException exception) {
             this.birthdate = null;
         }
+        return hasBirthday();
+    }
+
+    public boolean hasBirthday() {
+        return birthdate != null;
+    }
+
+    public LocalDate getBirthday() {
+        return birthdate;
+    }
+
+    @Override
+    public String getShortInfo() {
+
+        return "Name: " + getName() + " Surname: " + getSurname();
     }
 
     @Override
     public List<String> possibleFields() {
-        return List.of("name","surname","gender","birth date","number");
+        return List.of("name", "surname", "gender", "birth date", "number");
     }
 
     @Override
@@ -59,18 +84,22 @@ public class Person extends Contact {
     public String getValueOfFieldName(String fieldName) {
 
         switch (fieldName) {
-            case "surname":
-                return getSurname();
             case "name":
                 return getName();
+            case "surname":
+                return getSurname();
+
             case "gender":
                 return getGender();
+
             case "birth date":
-                return getBirthdate();
+                return getBirthday().toString();
+
             case "number":
                 return getPhoneNumber();
-            default:
-                return "";
+            default: return "";
+            //TODO boş alanlar için bad gender ve bad birthdate gibi olan yerleri ekle
+
         }
     }
 
@@ -78,14 +107,25 @@ public class Person extends Contact {
     public boolean changeFieldValue(String fieldName, String value) {
 
         switch (fieldName) {
-            case "surname" : setSurname(value);
-            return true;
-            case "name" : setName(value); return true;
-            case "gender" : setGender(value); return true;
-            case "birth date" : setBirthdate(value); return true;
-            case "number" : isNumberCorrectIfSoSetNumber(value); return true;
-            default: return false;
+            case "name": return setName(value);
+            case "surname" : return setSurname(value);
+            case "gender" : return setGender(value);
+            case "birth date" : return setBirthday(value);
+            case "number" : return isNumberCorrectIfSoSetNumber(value);
+            default : return false;
         }
 
+    }
+
+    @Override
+    public String getDetailedInfo() {
+        return "Name: " + getName() + "\r\n" +
+                "Surname: " + getSurname() + "\r\n" +
+                "Birth date: " + (getBirthday() != null ? getBirthday() : "[no data]") + "\r\n" +
+                "Gender: " + getGender() + "\r\n" +
+                "Number: " + getPhoneNumber() + "\r\n" +
+                "Time created: " + getDateCreated() + "\r\n" +
+                "Time last edit: " + getDateEdited()+ "\r\n"
+                ;
     }
 }

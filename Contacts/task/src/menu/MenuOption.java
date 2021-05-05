@@ -1,31 +1,41 @@
 package menu;
 import java.util.stream.Stream;
+
 enum MenuOption implements Runnable {
     ADD {
         @Override
         public void execute() {
-            Menu.mExecuteCrud.add();
+            executive.returnState("Enter the type (person, organization):");
+            executive.init().add();
         }
     },
     LIST {
         @Override
         public void execute() {
-            executive.returnState("testList");
+
+            while ( executive.init().list())
+            {
+                execute();
+            }
         }
     },
     SEARCH {
+
+
         @Override
         public void execute() {
-            executive.returnState("search");
+            while (executive.init().search()) {
+                execute();
 
-            MenuOption.LIST.execute();
+            }
+
         }
     },
 
     COUNT {
         @Override
         public void execute() {
-            executive.returnState("count");
+            executive.init().count();
         }
     },
     EXIT {
